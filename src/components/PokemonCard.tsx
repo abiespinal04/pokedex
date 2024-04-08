@@ -1,13 +1,8 @@
-import React from 'react';
-import {
-  Text,
-  Image,
-  ActivityIndicator,
-  Pressable,
-  StyleSheet,
-} from 'react-native';
+import React, {useCallback} from 'react';
+import {Text, Image, Pressable, StyleSheet} from 'react-native';
 import {useGetPokemonDetails} from '../hooks/useGetPokemonDetails';
 import {useNavigation} from '@react-navigation/native';
+import LoadingSpinner from './LoadingSpinner';
 
 type PokemonCardProps = {
   name: string;
@@ -18,17 +13,16 @@ const PokemonCard: React.FC<PokemonCardProps> = ({name, url}) => {
   const {navigate} = useNavigation();
   const {data, isLoading, isError} = useGetPokemonDetails(url);
 
-  if (isLoading) {
-    return <ActivityIndicator />;
-  }
+  const handlePress = useCallback(
+    (pokemon: typeof data) => {
+      navigate('Details', {pokemon});
+    },
+    [navigate],
+  );
 
-  if (isError) {
-    return <Text>An error occurred</Text>;
+  if (isLoading || isError) {
+    return <LoadingSpinner isLoading={isLoading} isError={isError} />;
   }
-
-  const handlePress = pokemon => {
-    navigate('Details', {pokemon});
-  };
 
   return (
     <Pressable
@@ -38,7 +32,10 @@ const PokemonCard: React.FC<PokemonCardProps> = ({name, url}) => {
         {backgroundColor: pressed ? '#ddd' : 'white'},
       ]}>
       <Text>{name}</Text>
-      <Image style={styles.image} source={{uri: data?.sprites?.front_default}} />
+      <Image
+        style={styles.image}
+        source={{uri: data?.sprites?.front_default}}
+      />
     </Pressable>
   );
 };
