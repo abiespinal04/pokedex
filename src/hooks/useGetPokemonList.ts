@@ -24,5 +24,5 @@ export const useGetPokemons = () =>
     queryKey: ['pokemons'],
     queryFn: ({pageParam}) => fetchPokemons(pageParam as number),
     getNextPageParam: getNextPageParam,
-    initialPageParam: 1,
+    initialPageParam: 0,
   });

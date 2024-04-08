@@ -1,7 +1,11 @@
 import React, {useCallback} from 'react';
 import {Text, Image, Pressable, StyleSheet} from 'react-native';
 import {useGetPokemonDetails} from '../hooks/useGetPokemonDetails';
-import {useNavigation} from '@react-navigation/native';
+import {
+  useNavigation,
+  ParamListBase,
+  NavigationProp,
+} from '@react-navigation/native';
 import LoadingSpinner from './LoadingSpinner';
 
 type PokemonCardProps = {
@@ -10,14 +14,14 @@ type PokemonCardProps = {
 };
 
 const PokemonCard: React.FC<PokemonCardProps> = ({name, url}) => {
-  const {navigate} = useNavigation();
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
   const {data, isLoading, isError} = useGetPokemonDetails(url);
 
   const handlePress = useCallback(
     (pokemon: typeof data) => {
-      navigate('Details', {pokemon});
+      navigation.navigate('PokemonDetails', {pokemon});
     },
-    [navigate],
+    [navigation],
   );
 
   if (isLoading || isError) {
@@ -31,11 +35,11 @@ const PokemonCard: React.FC<PokemonCardProps> = ({name, url}) => {
         styles.container,
         {backgroundColor: pressed ? '#ddd' : 'white'},
       ]}>
-      <Text>{name}</Text>
       <Image
         style={styles.image}
         source={{uri: data?.sprites?.front_default}}
       />
+      <Text style={styles.name}>{name}</Text>
     </Pressable>
   );
 };
@@ -43,6 +47,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({name, url}) => {
 export default PokemonCard;
 
 const styles = StyleSheet.create({
+  name: {
+    fontSize: 24,
+  },
   container: {
     width: '100%',
     height: 100,

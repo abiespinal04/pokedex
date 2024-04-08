@@ -3,6 +3,7 @@ import {FlatList, ActivityIndicator} from 'react-native';
 import {useGetPokemons} from '../../hooks/useGetPokemonList';
 import PokemonCard from '../../components/PokemonCard';
 import LoadingSpinner from '../../components/LoadingSpinner';
+import Searchbar from '../../components/Searchbar';
 
 const ListFooterComponent = () => {
   return <ActivityIndicator />;
@@ -18,6 +19,7 @@ const HomeScreen = () => {
 
   return (
     <FlatList
+      ListHeaderComponent={<Searchbar />}
       data={data?.pages.map(page => page?.results).flat()}
       keyExtractor={item => item.name}
       onEndReached={() => fetchNextPage()}
