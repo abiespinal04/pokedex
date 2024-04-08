@@ -16,6 +16,8 @@ npm start
 
 # OR using Yarn
 yarn start
+
+Then yarn clean-install
 ```
 
 ## Step 2: Start your Application
