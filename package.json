@@ -8,6 +8,7 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
+    "android-clean": "cd android && ./gradlew clean",
     "clean-install": "rm -rf node_modules; rm -rf ios/Pods; yarn install --frozen-lockfile && cd ios && pod install --repo-update; yarn android-clean" 
   },
   "dependencies": {
