@@ -2,6 +2,15 @@ apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
+    project.ext.envConfigFiles = [
+        productiondebug: ".env.production",
+        productionrelease: ".env.production",
+        developmentrelease: ".env.development",
+        developmentdebug: ".env.development",
+        stagingrelease: ".env.staging",
+        stagingdebug: ".env.staging"
+        ]
+
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -74,6 +83,30 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
+    // add this block
+    flavorDimensions "default"
+    productFlavors {
+        production {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId "com.pokedex"
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.pokedex"
+        }
+        staging {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId "com.pokedex.staging"
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.pokedex"
+        }
+        development {
+            minSdkVersion rootProject.ext.minSdkVersion
+            applicationId "com.pokedex.development"
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "build_config_package", "com.pokedex"
+        }
+    }
+   // --
+
     namespace "com.pokedex"
     defaultConfig {
         applicationId "com.pokedex"
@@ -93,6 +126,7 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+              matchingFallbacks = ['debug', 'release']
         }
         release {
             // Caution! In production, you need to generate your own keystore file.

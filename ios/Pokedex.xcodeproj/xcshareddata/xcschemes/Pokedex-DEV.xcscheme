@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1210"
+   LastUpgradeVersion = "1320"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -10,13 +10,13 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "rm &quot;${CONFIGURATION_BUILD_DIR}/${INFOPLIST_PATH}&quot;&#10;echo &quot;.env.prod&quot; &gt; /tmp/envfile&#10;&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/tmp.xcconfig&quot;&#10;">
+               scriptText = "rm &quot;${CONFIGURATION_BUILD_DIR}/${INFOPLIST_PATH}&quot;&#10;echo &quot;.env.dev&quot; &gt; /tmp/envfile&#10;&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/tmp.xcconfig&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-                     BuildableName = "Pokedex.app"
-                     BlueprintName = "Pokedex"
+                     BlueprintIdentifier = "AFC9D5AF2BC7909000D27714"
+                     BuildableName = "Pokedex-DEV.app"
+                     BlueprintName = "Pokedex-DEV"
                      ReferencedContainer = "container:Pokedex.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
@@ -32,9 +32,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Pokedex.app"
-               BlueprintName = "Pokedex"
+               BlueprintIdentifier = "AFC9D5AF2BC7909000D27714"
+               BuildableName = "Pokedex-DEV.app"
+               BlueprintName = "Pokedex-DEV"
                ReferencedContainer = "container:Pokedex.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -62,9 +62,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Pokedex.app"
-            BlueprintName = "Pokedex"
+            BlueprintIdentifier = "AFC9D5AF2BC7909000D27714"
+            BuildableName = "Pokedex-DEV.app"
+            BlueprintName = "Pokedex-DEV"
             ReferencedContainer = "container:Pokedex.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -79,9 +79,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Pokedex.app"
-            BlueprintName = "Pokedex"
+            BlueprintIdentifier = "AFC9D5AF2BC7909000D27714"
+            BuildableName = "Pokedex-DEV.app"
+            BlueprintName = "Pokedex-DEV"
             ReferencedContainer = "container:Pokedex.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

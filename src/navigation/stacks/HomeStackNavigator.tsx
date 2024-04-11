@@ -4,6 +4,7 @@ import HomeScreen from '../../screens/HomeScreen';
 import DetailScreen from '../../screens/DetailScreen';
 import {NativeStackScreenProps} from 'react-native-screens/lib/typescript/native-stack/types';
 import {NavigationProp} from '@react-navigation/native';
+import Config from 'react-native-config';
 
 type Pokemon = {
   name: string;
@@ -30,7 +31,11 @@ const Stack = createStackNavigator<RootStackParamList>();
 const HomeStackNavigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{title: "Home",}}
+      />
       <Stack.Screen name="PokemonDetails" component={DetailScreen} />
     </Stack.Navigator>
   );

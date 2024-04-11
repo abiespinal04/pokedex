@@ -28,6 +28,10 @@ end
 target 'Pokedex' do
   config = use_native_modules!
 
+
+  # For extensions without React dependencies
+  pod 'react-native-config/Extension', :path => '../node_modules/react-native-config'
+
   use_react_native!(
     :path => config[:reactNativePath],
     # Enables Flipper.
@@ -39,7 +43,12 @@ target 'Pokedex' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'PokedexTests' do
+  target 'Pokedex-DEV' do
+    inherit! :complete
+    # Pods for testing
+  end
+  
+  target 'Pokedex-STAGING' do
     inherit! :complete
     # Pods for testing
   end

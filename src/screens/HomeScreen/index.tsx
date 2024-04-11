@@ -1,9 +1,10 @@
 import React from 'react';
-import {FlatList, ActivityIndicator} from 'react-native';
+import {FlatList, Text, ActivityIndicator} from 'react-native';
 import {useGetPokemons} from '../../hooks/useGetPokemonList';
 import PokemonCard from '../../components/PokemonCard';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import Searchbar from '../../components/Searchbar';
+import Config from 'react-native-config';
 
 const ListFooterComponent = () => {
   return <ActivityIndicator />;
@@ -12,7 +13,7 @@ const ListFooterComponent = () => {
 const HomeScreen = () => {
   const {data, isLoading, isFetchingNextPage, isError, fetchNextPage} =
     useGetPokemons();
-
+    
   if (isLoading || isError) {
     <LoadingSpinner isLoading={isLoading} isError={isError} />;
   }
