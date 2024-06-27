@@ -1,3 +1,10 @@
+
+
+![pokedex](https://github.com/abiespinal04/pokedex/assets/36963285/0e56abec-2792-49d3-ab90-73010db7fece)
+
+
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
